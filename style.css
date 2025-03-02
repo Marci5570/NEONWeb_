@@ -1,354 +1,468 @@
-
 * {
-    box-sizing: border-box;
-    
-  }
-  
-  body {
-    background-color: black;
-    line-height: 1.5;
-    color: #444349;
-    font-family: 'Oswald', sans-serif;
-    color: white;
-  }
-  
-  a {
-    text-decoration: none;
-    color: white;
-    transition: color .15s ease-in-out;
-  }
-  
-  
+  box-sizing: border-box;
+
+}
+
+body {
+  background-color: black;
+  line-height: 1.5;
+  color: #444349;
+  font-family: 'Oswald', sans-serif;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  transition: color .15s ease-in-out;
+}
+
+
 /*Nav*/
 .logo img {
-    height: 70px;
-    width: auto;
-    margin: -20px;
+  height: 70px;
+  width: auto;
+  margin: -20px;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background-color 0.3s ease-in-out;
+}
+
+
+
+nav ul {
+  margin-top: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+  /* Eltávolítja a listajeleket */
+}
+
+nav a {
+  color: white;
+  display: block;
+}
+
+
+nav li {
+  font-size: 1.4rem;
+  line-height: 25px;
+  border-bottom: 1px solid red;
+}
+
+
+nav a:hover {
+  transition: background-color .3s ease-in-out;
+}
+
+nav a.active {
+  background-color: #c74f78;
+  color: #eee;
+}
+
+
+@media (max-width: 768px) {
+
+  .logo img {
+    display: none;
   }
-  
+
+  nav ul {
+    display: block;
+    /* Semlegesíti a flexbox-t, így a menüpontok blokk-szintű elemek lesznek */
+  }
+
+}
+
+nav {
+  font-size: 0;
+}
+
+
+@media (max-width: 768px) {
   nav {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
+    background: hsla(100, 0%, 0%, .1);
     z-index: 1000;
-    transition: background-color 0.3s ease-in-out;
-  }
-  
-  
-  
-  nav ul {
-    margin-top: 20px;
     text-align: center;
+  }
+
+  .menu-toggle {
+    display: block;
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    font-size: 1.7rem;
+    cursor: pointer;
+    z-index: 1001;
+    background: black;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    text-align: center;
+    padding: 10px 0;
+    z-index: 999;
+  }
+
+  nav ul.active {
     display: flex;
-    justify-content: space-evenly;
-    list-style: none; /* Eltávolítja a listajeleket */
-    }
+  }
 
-    nav a {
-        color: white;
-        display: block;
-    }
-
-  
   nav li {
-    font-size: 1.4rem;
-    line-height: 25px;
-    border-bottom: 1px solid red;
+    margin: 10px 0;
   }
 
-  
-  nav a:hover {
-    transition: background-color .3s ease-in-out;
+  nav a {
+    color: white;
+    font-size: 1.5rem;
+    padding: 10px;
+    display: block;
   }
-  
-  nav a.active {
-    background-color: #c74f78;
-    color: #eee;
-  }
-  
-  
-  @media (max-width: 768px) {
-  
-    .logo img {
-      display: none;
-    }
-  
-    nav ul {
-      display: block;
-      /* Semlegesíti a flexbox-t, így a menüpontok blokk-szintű elemek lesznek */
-    }
-  
-  }
-  
-  nav {
-    font-size: 0;
-  }
+}
 
 /*Header*/
 .cover {
-    background: url('assets/cover.jpg') no-repeat center/cover;
-    display: table;
-    text-align: center;
-    height: 100vh;
-    width: 100%;
-  }
-  
-  .hero-text-wrapper {
-    display: table-cell;
-    vertical-align: middle;
-  }
-  
-  .hero-text {
-    margin: 0 auto;
-    padding: .625rem;
-    color: hsla(0, 0%, 100%, .9);
-    background: hsla(100, 0%, 0%, .7);
-  }
-  
-  .hero-text h1 {
-    font-size: 14rem;
-    transform: rotate(-10deg);
-    color: white; /* Betű színe */
-    margin-bottom: 0;
-    -webkit-text-stroke: 2px red; /* Piros körvonal */
+  background: url('assets/cover.jpg') no-repeat center/cover;
+  display: table;
+  text-align: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.hero-text-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.hero-text {
+  margin: 0 auto;
+  padding: .625rem;
+  color: hsla(0, 0%, 100%, .9);
+  background: hsla(100, 0%, 0%, .7);
+}
+
+.hero-text h1 {
+  font-size: 14rem;
+  transform: rotate(-10deg);
+  color: white;
+  /* Betű színe */
+  margin-bottom: 0;
+  -webkit-text-stroke: 2px red;
+  /* Piros körvonal */
 }
 
 
 
-  .tagline2::before {
-    display: block;
-    content: "";
-    background-color: #fff;
-    height: 1px;
-    width: 12.5rem;
-    margin: .5rem auto;
+.tagline2::before {
+  display: block;
+  content: "";
+  background-color: #fff;
+  height: 1px;
+  width: 12.5rem;
+  margin: .5rem auto;
+}
+
+.date {
+  font-size: 1.25rem;
+  letter-spacing: .15rem;
+}
+
+.date::before,
+.date::after {
+  display: inline-block;
+  content: "";
+  background-color: #fff;
+  height: 1px;
+  width: 1.5rem;
+  margin: 0 .5rem;
+}
+
+@media (max-width: 768px) {
+  .hero-text h1 {
+    font-size: 5rem;
+    transform: rotate(0deg);
+    -webkit-text-stroke: 1px red;
   }
-  
-  .date {
-    font-size: 1.25rem;
-    letter-spacing: .15rem;
-  }
-  
-  .date::before,
-  .date::after {
-    display: inline-block;
-    content: "";
-    background-color: #fff;
-    height: 1px;
-    width: 1.5rem;
-    margin: 0 .5rem;
-  }
+}
 
 /*Szolgáltatás*/
-.szolgaltatas h2{
-    font-size: 2rem;
+.szolgaltatas h2 {
+  font-size: 2rem;
 }
 
 .highlight {
-    color: red;
-    text-decoration: underline;
-  }
-  
-  .szolgaltatas {
-    text-align: center;
-  }
-  
-  .szolgaltatas h3 {
-    font-size: 1.7rem;
-    margin-bottom: 20px;
-  }
-  
-  .szolgaltatas ul {
-    font-size: 1.3rem;
-    list-style-type: none;
-    padding: 0;
-  }
-  
+  color: red;
+  text-decoration: underline;
+}
+
+.szolgaltatas {
+  text-align: center;
+}
+
+.szolgaltatas h3 {
+  font-size: 1.7rem;
+  margin-bottom: 20px;
+}
+
+.szolgaltatas ul {
+  font-size: 1.3rem;
+  list-style-type: none;
+  padding: 0;
+}
+
+.box {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  display: inline-block;
+  width: calc(33.33% - 60px);
+  height: 450px;
+  margin: 20px 10px;
+  vertical-align: top;
+  position: relative;
+  overflow: hidden;
+}
+
+.box::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: red;
+  /* Kékes háttér */
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.box:hover::after {
+  left: 0;
+}
+
+/* Az ikon színének fehérre változtatása */
+.box i {
+  transition: filter 0.3s ease;
+  /* Átmenet az ikon színének változásához */
+}
+
+.box:hover h3,
+.box:hover li,
+.box:hover i {
+  filter: brightness(0) invert(1);
+  /* Az ikon színe fehér lesz */
+}
+
+.box:hover h3 p {
+  filter: brightness(0) invert(1);
+  /* Az ikon színe fehér lesz */
+}
+
+.box .fa {
+  font-size: 8rem;
+  color: red;
+  padding: 2rem;
+  border-bottom: 2px solid black;
+}
+
+@media (max-width: 768px) {
   .box {
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-    display: inline-block;
-    width: calc(33.33% - 60px);
-    height: 450px;
-    margin: 20px 10px;
-    vertical-align: top;
-    position: relative;
-    overflow: hidden;
+    width: calc(100% - 40px);
+    height: auto;
+    padding: 20px;
   }
-  
-  .box::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background-color: red;
-    /* Kékes háttér */
-    transition: left 0.3s ease;
-    z-index: -1;
-  }
-  
-  .box:hover::after {
-    left: 0;
-  }
-  
-  /* Az ikon színének fehérre változtatása */
-  .box i {
-    transition: filter 0.3s ease;
-    /* Átmenet az ikon színének változásához */
-  }
-  
-  .box:hover h3,
-  .box:hover li,
-  .box:hover i {
-    filter: brightness(0) invert(1);
-    /* Az ikon színe fehér lesz */
-  }
-  
-  .box:hover h3 p {
-    filter: brightness(0) invert(1);
-    /* Az ikon színe fehér lesz */
-  }
-  
+
   .box .fa {
-    font-size: 8rem;
-    color: red;
-    padding: 2rem;
-    border-bottom: 2px solid black;
+    font-size: 5rem;
   }
+}
 
 /*Separator*/
 .separator {
-    width: auto; 
-    height: 300px; 
-    background: url('assets/sep4.jpg') no-repeat center center; 
-    background-attachment: fixed;
-    
+  width: auto;
+  height: 300px;
+  background: url('assets/sep4.jpg') no-repeat center center;
+  background-attachment: fixed;
+
+}
+
+@media (max-width: 768px) {
+  .separator {
+    height: 200px;
+    background-size: cover;
+  }
 }
 
 /*Wordpress*/
-.wp h2{
-    font-size: 2rem;;
+.wp h2 {
+  font-size: 2rem;
+  ;
 }
+
 .wp {
-    margin-top: 20px;
-    width: 100%;
-    padding-top: 30px;
-    display: flex;
-    justify-content: center;
-  }
-  
+  margin-top: 20px;
+  width: 100%;
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.wp-container {
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.image {
+  flex: 1.3;
+  padding: 20px;
+}
+
+.image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.description {
+  flex: 1;
+  padding: 20px;
+}
+
+.description h2 {
+  color: #333;
+}
+
+.description p {
+  font-size: 1.1em;
+  color: #555;
+}
+
+@media (max-width: 768px) {
   .wp-container {
-    display: flex;
-    align-items: center;
-    max-width: 1200px;
-    width: 100%;
+    flex-direction: column;
+    text-align: center;
   }
-  
-  .image {
-    flex: 1.3;
-    padding: 20px;
-  }
-  
-  .image img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-  }
-  
+
+  .image,
   .description {
-    flex: 1;
-    padding: 20px;
+    flex: none;
+    width: 100%;
   }
-  
-  .description h2 {
-    color: #333;
-  }
-  
-  .description p {
-    font-size: 1.1em;
-    color: #555;
-  }
+}
 
 /*Galeria*/
 #gallery {
-    padding: 50px 20px;
+  padding: 50px 20px;
 
 }
 
 .gallery-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .gallery h2 {
-    font-size: 2em;
-    margin-bottom: 30px;
+  font-size: 2em;
+  margin-bottom: 30px;
 }
 
 .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Két kép egy sorban */
-    gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* Két kép egy sorban */
+  gap: 20px;
 }
 
 .gallery-item {
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: relative;
-    height: 300px; /* A képek egységes magassága */
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  height: 300px;
+  /* A képek egységes magassága */
 }
 
 .gallery-item img {
-    width: 100%;
-    height: 100%; /* A képek kitöltik a rendelkezésre álló helyet */
-    object-fit: cover; /* A képek nem torzulnak, hanem a megfelelő területet kitöltik */
-    transition: transform 0.3s ease;
+  width: 100%;
+  height: 100%;
+  /* A képek kitöltik a rendelkezésre álló helyet */
+  object-fit: cover;
+  /* A képek nem torzulnak, hanem a megfelelő területet kitöltik */
+  transition: transform 0.3s ease;
 }
 
 .gallery-item:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .gallery-item:hover img {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 /* Mobil eszközök: A képek egy oszlopba kerülnek */
 @media (max-width: 768px) {
-    .gallery-grid {
-        grid-template-columns: 1fr; /* Egy kép egy sorban mobilon */
-    }
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    /* Egy kép egy sorban mobilon */
+  }
 }
 
 
 
 /*Footer*/
 footer ul {
-    list-style: none;
-    text-align: center;
-    margin: 1.5%;
+  list-style: none;
+  text-align: center;
+  margin: 1.5%;
+}
+
+footer li {
+  display: inline;
+  padding: 4%;
+  font-size: 2.5rem;
+}
+
+.footer-d {
+  text-align: center;
+  width: 100%;
+  height: 3rem;
+  background-color: #444349;
+  padding: 0.2rem;
+}
+
+footer i:hover {
+  color: red;
+  font-size: 2.9rem;
+  transition: font-size 0.3s
+}
+
+@media (max-width: 768px) {
+  footer ul {
+    padding: 0;
   }
-  
+
   footer li {
-    display: inline;
-    padding: 4%;
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
-  
-  .footer-d {
-    text-align: center;
-    width: 100%;
-    height: 3rem;
-    background-color: #444349;
-    padding: 0.2rem;
-  }
-  
-  footer i:hover {
-    color: red;
-    font-size: 2.9rem;
-    transition: font-size 0.3s
-  }
+}

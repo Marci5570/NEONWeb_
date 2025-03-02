@@ -140,5 +140,47 @@
 
     </footer>
 </body>
+<script>
 
+    function openModal(index) {
+        currentIndex = index;
+        const modal = document.getElementById("myModal");
+        const modalImage = document.getElementById("modalImage");
+        const caption = document.getElementById("caption");
+      
+        // A kiválasztott kép és felirat betöltése
+        modalImage.src = images[currentIndex].src;
+        caption.textContent = images[currentIndex].nextElementSibling.textContent;
+      
+        // Modal megjelenítése
+        modal.style.display = "block";
+      }
+      
+      function closeModal() {
+        document.getElementById("myModal").style.display = "none";
+      }
+      
+      function changeImage(direction) {
+        currentIndex += direction;
+        
+        if (currentIndex < 0) currentIndex = images.length - 1;
+        if (currentIndex >= images.length) currentIndex = 0;
+      
+        const modalImage = document.getElementById("modalImage");
+        const caption = document.getElementById("caption");
+      
+        // A következő/előző kép betöltése
+        modalImage.src = images[currentIndex].src;
+        caption.textContent = images[currentIndex].nextElementSibling.textContent;
+      }
+      
+      document.addEventListener("DOMContentLoaded", function () {
+        const menuToggle = document.querySelector(".menu-toggle");
+        const navMenu = document.querySelector("nav ul");
+      
+        menuToggle.addEventListener("click", function () {
+          navMenu.classList.toggle("active");
+        });
+      });
+</script>
 </html>
